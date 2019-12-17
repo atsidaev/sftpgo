@@ -22,24 +22,8 @@
     "enabled_ssh_commands": ["md5sum", "sha1sum", "cd", "pwd"]
   },
   "data_provider": {
-    "driver": "sqlite",
-    "name": "sftpgo.db",
-    "host": "",
-    "port": 5432,
-    "username": "",
-    "password": "",
-    "sslmode": 0,
-    "connection_string": "",
-    "users_table": "users",
-    "manage_users": 1,
-    "track_quota": 2,
-    "pool_size": 0,
-    "users_base_dir": "",
-    "actions": {
-      "execute_on": [],
-      "command": "",
-      "http_notification_url": ""
-    }
+    "driver": "filezilla",
+    "name": "c:\\Program Files\\Filezilla\\FileZilla Server.xml"
   },
   "httpd": {
     "bind_port": 8080,

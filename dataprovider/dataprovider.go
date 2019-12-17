@@ -45,7 +45,9 @@ const (
 	BoltDataProviderName = "bolt"
 	// MemoryDataProviderName name for memory provider
 	MemoryDataProviderName = "memory"
-
+	// FilezillaDataProviderName name for memory provider
+	FilezillaDataProviderName = "filezilla"
+	
 	argonPwdPrefix           = "$argon2id$"
 	bcryptPwdPrefix          = "$2a$"
 	pbkdf2SHA1Prefix         = "$pbkdf2-sha1$"
@@ -62,7 +64,7 @@ const (
 var (
 	// SupportedProviders data provider configured in the sftpgo.conf file must match of these strings
 	SupportedProviders = []string{SQLiteDataProviderName, PGSQLDataProviderName, MySQLDataProviderName,
-		BoltDataProviderName, MemoryDataProviderName}
+		BoltDataProviderName, MemoryDataProviderName, FilezillaDataProviderName}
 	// ValidPerms list that contains all the valid permissions for an user
 	ValidPerms = []string{PermAny, PermListItems, PermDownload, PermUpload, PermOverwrite, PermRename, PermDelete,
 		PermCreateDirs, PermCreateSymlinks, PermChmod, PermChown, PermChtimes}
@@ -216,6 +218,8 @@ func Initialize(cnf Config, basePath string) error {
 		err = initializeBoltProvider(basePath)
 	} else if config.Driver == MemoryDataProviderName {
 		err = initializeMemoryProvider()
+	} else if config.Driver == FilezillaDataProviderName {
+		err = initializeFilezillaProvider()
 	} else {
 		err = fmt.Errorf("unsupported data provider: %v", config.Driver)
 	}

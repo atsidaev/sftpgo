@@ -4,6 +4,8 @@ go 1.12
 
 require (
 	github.com/alexedwards/argon2id v0.0.0-20190612080829-01a59b2b8802
+	github.com/antchfx/xmlquery v1.2.1
+	github.com/antchfx/xpath v1.1.2 // indirect
 	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/go-chi/chi v4.0.2+incompatible
 	github.com/go-chi/render v1.0.1
